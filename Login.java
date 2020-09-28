@@ -20,7 +20,7 @@ public class Login {
               found = true;
           }
           if(!found){
-              System.out.println("Invalid first name");
+              System.out.println("Invalid last name");
 	}
 
 	}
@@ -40,6 +40,25 @@ public class Login {
           if(!found){
               System.out.println("Invalid last name");
 	}
+
+	}
+	public static void EmailValidate(String email)
+	{
+		 String number="^[a-zA-Z]+([._+-]{0,1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[(com)|(co)|(net)]+(?:\\.[a-z]{2,}){0,1}$";
+		
+		  Pattern pattern = Pattern.compile(number);
+
+          Matcher matcher =  pattern.matcher(email);
+
+          boolean found = false;
+          while (matcher.find()) {
+              System.out.println("Valid email");
+              found = true;
+          }
+          if(!found){
+              System.out.println("Invalid email");
+	}
+
 	}
 	public static void MobileValidate(String name)
 	{
@@ -60,7 +79,6 @@ public class Login {
 
 	}
 	
-	
 	public static void main(String[] args) {
 		System.out.println("Welcome to login page");
 		System.out.println("Enter first name:");
@@ -73,5 +91,8 @@ public class Login {
 		System.out.println("Enter phone number: ");
 		String phn=s1.nextLine();
 		MobileValidate(phn);
+		System.out.println("Enter email: ");
+		String email=s1.nextLine();
+		EmailValidate(email);
 	}
 }
