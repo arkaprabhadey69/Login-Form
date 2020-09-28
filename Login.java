@@ -82,7 +82,7 @@ public class Login {
     { 
   	    
     	String regex2 = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^\\dA-Z]).{8,}$";
-    	String regex1 = "[A-Z a-z 0-9]*[@$!%?&][A-Z a-z 0-9]*";
+    	String regex1="^(?=.*?[0-9a-zA-Z])[0-9a-zA-Z]*[@#$%][0-9a-zA-Z]*$";
         Pattern pattern1 = Pattern.compile(regex1); 
         Pattern pattern2 = Pattern.compile(regex2);
         if (password == null) { 
