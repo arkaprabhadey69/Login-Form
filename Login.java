@@ -78,6 +78,22 @@ public class Login {
 	}
 
 	}
+	public static boolean isPasswordValid(String password) 
+    { 
+  	    
+    	String regex2 = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^\\dA-Z]).{8,}$";
+    	String regex1 = "[A-Z a-z 0-9]*[@$!%?&][A-Z a-z 0-9]*";
+        Pattern pattern1 = Pattern.compile(regex1); 
+        Pattern pattern2 = Pattern.compile(regex2);
+        if (password == null) { 
+            return false; 
+        } 
+  
+        
+        Matcher matcher1 = pattern1.matcher(password);
+        Matcher matcher2 = pattern2.matcher(password); 
+        return matcher1.matches()&&matcher2.matches(); 
+    }
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to login page");
@@ -94,5 +110,14 @@ public class Login {
 		System.out.println("Enter email: ");
 		String email=s1.nextLine();
 		EmailValidate(email);
+		System.out.println("Enter password: ");
+		String pass=s.nextLine();
+		boolean f=isPasswordValid(pass);
+		if(f)
+		{
+			System.out.println("Valid password");
+		}
+		else
+			System.out.println("Invalid password");
 	}
 }
