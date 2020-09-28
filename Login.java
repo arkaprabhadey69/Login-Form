@@ -41,15 +41,37 @@ public class Login {
               System.out.println("Invalid last name");
 	}
 	}
+	public static void MobileValidate(String name)
+	{
+		 String number="^\\d{2}(\\s{1}\\d{10})$";
+		
+		  Pattern pattern = Pattern.compile(number);
+
+          Matcher matcher =  pattern.matcher(name);
+
+          boolean found = false;
+          while (matcher.find()) {
+              System.out.println("Valid Number");
+              found = true;
+          }
+          if(!found){
+              System.out.println("Invalid Number");
+	}
+
+	}
 	
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to login page");
+		System.out.println("Enter first name:");
 		Scanner s1=new Scanner(System.in);
 		String firstname=s1.nextLine();
 		FirstNameValidate(firstname);
+		System.out.println("Enter last name: ");
 		String lastname=s1.nextLine();
 		LastNameValidate(lastname);
-		//MobileValidate(x);
+		System.out.println("Enter phone number: ");
+		String phn=s1.nextLine();
+		MobileValidate(phn);
 	}
 }
